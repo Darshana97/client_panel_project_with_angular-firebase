@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,Input } from '@angular/core';
 
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from '../../services/client.service';
@@ -13,6 +13,8 @@ import { from } from 'rxjs';
   styleUrls: ['./add-client.component.css']
 })
 export class AddClientComponent implements OnInit {
+
+ 
 
   client: Client = {
     firstName: '',
