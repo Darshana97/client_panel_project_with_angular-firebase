@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild,Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
+import { SettingsService } from '../../services/settings.service';
 
 import { Client } from '../../models/Client';
 import { from } from 'rxjs';
@@ -14,7 +15,7 @@ import { from } from 'rxjs';
 })
 export class AddClientComponent implements OnInit {
 
- 
+
 
   client: Client = {
     firstName: '',
@@ -24,12 +25,14 @@ export class AddClientComponent implements OnInit {
     balance: 0
   }
 
-  disableBalanceOnAdd: boolean = true;
+  disableBalanceOnAdd: boolean;
   @ViewChild('clientForm') from: any;
 
-  constructor(private flashMessage: FlashMessagesService, private clientService: ClientService, private router: Router) { }
+  constructor(private flashMessage: FlashMessagesService, private clientService: ClientService, private router: Router, private settingsService: SettingsService) { }
 
   ngOnInit(): void {
+
+    this.disableBalanceOnAdd = this.settingsService.getSettings().disableBalanceOnAdd;
 
   }
 
