@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
-import { Router } from '@angular/router'
-import { FlashMessage } from 'angular2-flash-messages/module/flash-message';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +10,8 @@ import { FlashMessage } from 'angular2-flash-messages/module/flash-message';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  email:string;
+  password:string;
 
   constructor(private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) { }
 
