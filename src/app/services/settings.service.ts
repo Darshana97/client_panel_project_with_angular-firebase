@@ -6,16 +6,26 @@ import { Settings } from '../models/Settings';
 })
 export class SettingsService {
 
-  setings: Settings = {
+  settings: Settings = {
     allowRegistration: true,
     disableBalanceOnAdd: true,
     disableBalanceOnEdit: true
   }
 
-  constructor() { }
+  constructor() {
+    if (localStorage.getItem('settings') != null) {
+      this.settings = JSON.parse(localStorage.getItem('settings'));
+    }
+  }
 
   getSettings(): Settings {
-    return this.setings;
+    return this.settings;
+  }
+
+  changeSettings(settings:Settings) {
+
+    localStorage.setItem('settings', JSON.stringify(settings));
+
   }
 
 }
