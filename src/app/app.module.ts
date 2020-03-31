@@ -25,6 +25,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ClientService } from './services/client.service';
 import { AuthService } from './services/auth.service';
 import { SettingsService } from './services/settings.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { SettingsService } from './services/settings.service';
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MatButtonModule
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import { SettingsService } from './services/settings.service';
     AngularFirestoreModule,
     AngularFireAuthModule,
     FlashMessagesModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [ClientService, AuthService, SettingsService],
   bootstrap: [AppComponent]
